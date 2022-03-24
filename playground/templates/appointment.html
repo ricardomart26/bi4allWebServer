@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1>Appointment</h1>
+	<form method="post" action="">
+		{% csrf_token %}
+		<label for="sday">Start Date: </label>
+		<input type="date" name="sday">
+		<label for="stime">Starting hour: </label>
+		<input type="text" placeholder="Starting hour (format is hour:minutes)" name="stime"><br>
+		
+		<label for="fday">Finish Date: </label>
+		<input type="date" name="fday">
+		<label for="ftime">Finishing hour: </label>
+		<input type="text" placeholder="Finishing hour (format is hour:minutes)" name="ftime"><br>
+		
+		<label for="capacity">Capacity: </label>
+		<input type="text" placeholder="Amount of people" name="capacity"><br>
+		<input type="submit" value="submit">		
+	</form>
+</body>
+</html>
