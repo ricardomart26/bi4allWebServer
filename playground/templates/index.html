@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	{% load static %}
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<link rel="stylesheet" href="{% static 'style.css' %}">
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+	<!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+	<link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">	
+	<title>BI4ALL</title>
 </head>
-<body>
-	<h1>Homepage</h1>
-	<a href="{% url 'login' %}">Click to Log in</a>
-	{{answer}}
+<body class="bg">
+	<header class="nav-head">
+		<div class="container">
+			<a href="index.html" class="logo"></a>
+			<nav class="nav-bar">
+				<ul class="nav-list">
+					<li class="nav-items"><a href="appointment" class="nav-links">Book</a></li>
+					<li class="nav-items"><a href="cancel.html" class="nav-links">Cancel</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<section class="content">
+		<div class="text-box">
+			<h1 class="text">Book your meeting room here</h1>
+		</div>
+		<div class="test-button">
+			<button class="book button"><a href="appointment" class="button-anchor">Book</a></button>
+			<button class="cancel button"><a href="cancel.html" class="button-anchor">Cancel</a></button>
+		</div>
+	</section>
 </body>
 </html>

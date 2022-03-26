@@ -4,10 +4,10 @@ from . import views
 
 # Url configuration
 urlpatterns = [
-	path('hello/', views.say_hello, name="hello"),
+	# path('hello/', views.say_hello, name="hello"),
 	path('appointment/', views.appointment, name="appointment"),
-	path('cancelation/', views.cancelation, name="cancelation"),
+	path('cancel/', views.cancelation, name="cancelation"),
 	path('', views.homepage, name="homepage"),
-	path('login/', views.login, name="login")
+	# path('login/', views.login, name="login")
 	# path('validate', views.validate, name="validate")
 ]

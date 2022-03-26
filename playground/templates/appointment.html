@@ -1,28 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+	{% load static %}
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<link rel="stylesheet" href="{% static 'style.css' %}">
+	<script type="text/javascript" src="{% static 'backend.js' %}"></script>
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+	<!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+	<link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
+	<title>BI4ALL-BOOKING</title>
 </head>
-<body>
-	<h1>Appointment</h1>
-	<form method="post" action="">
-		{% csrf_token %}
-		<label for="sday">Start Date: </label>
-		<input type="date" name="sday">
-		<label for="stime">Starting hour: </label>
-		<input type="text" placeholder="Starting hour (format is hour:minutes)" name="stime"><br>
-		
-		<label for="fday">Finish Date: </label>
-		<input type="date" name="fday">
-		<label for="ftime">Finishing hour: </label>
-		<input type="text" placeholder="Finishing hour (format is hour:minutes)" name="ftime"><br>
-		
-		<label for="capacity">Capacity: </label>
-		<input type="text" placeholder="Amount of people" name="capacity"><br>
-		<input type="submit" value="submit">		
-	</form>
+
+<body class="bg">
+	<header class="nav-head">
+		<div class="container">
+			<a href="index.html" class="logo"></a>
+			<nav class="nav-bar">
+				<ul class="nav-list">
+					<li class="nav-items"><a href="book.html" class="nav-links">Book</a></li>
+					<li class="nav-items"><a href="cancel.html" class="nav-links">Cancel</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<section class="book-content">
+		<div class="room-button">
+			<form action="backend.js">
+				<div class="col-25">
+					<label for="rooms">Room Number</label>
+				</div>
+				<div class="change-room">
+					<input alt="0 for all rooms combined" type="number" onchange="changeURL()" placeholder="1" id="room-changer" name="room" min="0"
+						max="5">
+				</div>
+			</form>
+		</div>
+		<div class="calendar">
+			<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Europe%2FLisbon&src=ZTg5M2YyaWI4MW1oa2Y3OHBvbzNwMWg4dm9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%232952a3"
+				id="calendar-url" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+		</div>
+			<!-- {{ form }} -->
+			<form method="post"> 
+				{% csrf_token %}
+				<div class="container-book">
+					<div class="row">
+						<div class="col-25">
+							<label for="name">Name</label>
+						</div>
+						<div class="col-75">
+							<input type="text" id="name" name="name" placeholder="Your name.." value="Ricardo" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="name">Email</label>
+						</div>
+						<div class="col-75">
+							<input type="email" id="email" name="email" placeholder="Your email.." value="ricardomartins2626t@gmail.com" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="start">Date:</label>
+						</div>
+						<div class="col-75">
+							<input type="date" id="date" name="Date" value="2022-03-26" min="datetime-local"
+								max="2030-12-31" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="country">Start-Time</label>
+						</div>
+						<div class="col-75">
+							<input type="time" id="start" name="start_time" min="00:00" max="23:59" value="12:04" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="country">End-Time</label>
+						</div>
+						<div class="col-75">
+							<input type="time" id="end" name="end_time" min="00:00" max="23:59" value="12:08" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="people">Number of members:</label>
+						</div>
+						<div class="col-75">
+							<input type="number" id="members" name="capacity" min="2" max="6" value=3 required>
+						</div>
+					</div>
+					<div class="row">
+						<button id="submit-button" name="appointment" value="Submit" onclick="submit()">
+					</div>
+				</div>
+			</form>
+	</section>
 </body>
+
 </html>
